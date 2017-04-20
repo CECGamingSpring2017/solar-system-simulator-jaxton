@@ -1,8 +1,7 @@
-﻿//solar system model 
+//solar system model 
 //plots elliptical course of earth around sun, students add other planets
 //code base written by Dr. Mo, April 2017
 //students: add your names here :D
-
 
 
 #include <stdio.h>
@@ -66,9 +65,9 @@ int main() {
 	//add Mars here
 	double Period_Ratio_Earth = 1;
 	double Period_Ratio_Mars = .5317; //found by dividing orbital period of Earth by orbital period of Mars
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+									  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//initalize allegro libraries
+									  //initalize allegro libraries
 	al_init();
 	al_init_primitives_addon();
 	al_init_image_addon();
@@ -112,7 +111,7 @@ int main() {
 			earth_y = Earth_Semimajor_Axis*(sqrt((1 - Earth_Eccentricity)*(1 - Earth_Eccentricity))*sin((t*3.14) / 180)) + SCREEN_HEIGHT / 2;
 
 			//parametric equations for Mars orbit go here
-			
+
 
 
 			//time calculation
@@ -157,7 +156,7 @@ int main() {
 			//draw earth
 			al_draw_filled_circle(earth_x, earth_y, 5, al_map_rgb(50, 50, 200));
 			//other planets go here
-			
+
 
 
 			al_flip_display();
