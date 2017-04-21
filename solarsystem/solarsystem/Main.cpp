@@ -40,6 +40,7 @@ int main() {
 	ALLEGRO_TIMER *timer = NULL;
 	ALLEGRO_BITMAP *earth = NULL;
 	ALLEGRO_BITMAP *sun = NULL;
+	ALLEGRO_BITMAP *mars = NULL;
 
 	ALLEGRO_BITMAP *background = NULL;
 	ALLEGRO_BITMAP *icon = NULL;
@@ -51,6 +52,8 @@ int main() {
 	//LOOK HERE! Each planet needs an x,y position. Add two variables for each planet you want- one for its x position, another for y
 	double earth_x;
 	double earth_y;
+	double mars_x;
+	double mars_y;
 	int sun_x = SCREEN_WIDTH / 2;
 	int sun_y = SCREEN_HEIGHT / 2;
 
@@ -60,10 +63,11 @@ int main() {
 	//variables for planets' orbits! You can find this information here:
 	//https://nssdc.gsfc.nasa.gov/planetary/factsheet/
 	double Earth_Semimajor_Axis = 149.6;
-	//add Mars here
+	double mars_Semimajor_Axis = 299.2;
 	double Earth_Eccentricity = .0167;
-	//add Mars here
+	double mars_Eccentricity = .0334;
 	double Period_Ratio_Earth = 1;
+	double Period_Ratio_mars = 2;
 	double Period_Ratio_Mars = .5317; //found by dividing orbital period of Earth by orbital period of Mars
 									  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -93,7 +97,7 @@ int main() {
 	al_start_timer(timer);
 
 
-	//BEGIN GAME LOOP////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//BEGIN GAME LOOP///////////////////////////////////////////////////////////////////////////////
 	while (1)
 	{
 		ALLEGRO_EVENT ev;
@@ -107,12 +111,22 @@ int main() {
 
 
 			//parametric equations for Earth's elliptical orbit
+
 			earth_x = Earth_Semimajor_Axis*(cos((t*3.14*Period_Ratio_Earth) / 180 - Earth_Eccentricity)) + SCREEN_WIDTH / 2;
+			//3.14 changes the shape of orbit
+			//180 changes the route of the orbit
+			//2 shifts the orbit horizontally
 			earth_y = Earth_Semimajor_Axis*(sqrt((1 - Earth_Eccentricity)*(1 - Earth_Eccentricity))*sin((t*3.14) / 180)) + SCREEN_HEIGHT / 2;
+			//1 makes the shape of the orbit (oval, circle)
+			//1 shows how far the planet travels out
+			//3.14 
+			//180 
+			//2 shifts the orbit vertically 
 
 			//parametric equations for Mars orbit go here
 
-
+			mars_x = mars_Semimajor_Axis*(cos((t*6.28*Period_Ratio_mars) / 360 - mars_Eccentricity)) + SCREEN_WIDTH / 4;
+			mars_y = mars_Semimajor_Axis*(sqrt((1 - mars_Eccentricity)*(1 - mars_Eccentricity))*sin((t*6.28) / 360)) + SCREEN_HEIGHT / 4;
 
 			//time calculation
 			//2pi = 365 days
@@ -156,7 +170,7 @@ int main() {
 			//draw earth
 			al_draw_filled_circle(earth_x, earth_y, 5, al_map_rgb(50, 50, 200));
 			//other planets go here
-
+			al_draw_filled_circle(mars_x, mars_y, 5, al_map_rgb(50, 50, 200));
 
 
 			al_flip_display();
