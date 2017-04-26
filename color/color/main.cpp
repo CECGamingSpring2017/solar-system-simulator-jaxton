@@ -8,8 +8,6 @@ int main() {
 		system("pause");
 	}
 
-
-
 }
 
 void ham() {

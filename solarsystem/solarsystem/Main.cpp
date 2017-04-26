@@ -63,11 +63,11 @@ int main() {
 	//variables for planets' orbits! You can find this information here:
 	//https://nssdc.gsfc.nasa.gov/planetary/factsheet/
 	double Earth_Semimajor_Axis = 149.6;
-	double mars_Semimajor_Axis = 299.2;
+	double mars_Semimajor_Axis = 339.6;
 	double Earth_Eccentricity = .0167;
-	double mars_Eccentricity = .0334;
+	double mars_Eccentricity = 0.094;
 	double Period_Ratio_Earth = 1;
-	double Period_Ratio_mars = 2;
+	double Period_Ratio_mars = 6.87;
 	double Period_Ratio_Mars = .5317; //found by dividing orbital period of Earth by orbital period of Mars
 									  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -125,8 +125,8 @@ int main() {
 
 			//parametric equations for Mars orbit go here
 
-			mars_x = mars_Semimajor_Axis*(cos((t*6.28*Period_Ratio_mars) / 360 - mars_Eccentricity)) + SCREEN_WIDTH / 4;
-			mars_y = mars_Semimajor_Axis*(sqrt((1 - mars_Eccentricity)*(1 - mars_Eccentricity))*sin((t*6.28) / 360)) + SCREEN_HEIGHT / 4;
+			mars_x = mars_Semimajor_Axis*(cos((t*3.14*Period_Ratio_mars) / 180 - mars_Eccentricity)) + SCREEN_WIDTH / 2;
+			mars_y = mars_Semimajor_Axis*(sqrt((1 - mars_Eccentricity)*(1 - mars_Eccentricity))*sin((t*3.14) / 180)) + SCREEN_HEIGHT / 2;
 
 			//time calculation
 			//2pi = 365 days
@@ -170,7 +170,7 @@ int main() {
 			//draw earth
 			al_draw_filled_circle(earth_x, earth_y, 5, al_map_rgb(50, 50, 200));
 			//other planets go here
-			al_draw_filled_circle(mars_x, mars_y, 5, al_map_rgb(50, 50, 200));
+			al_draw_filled_circle(mars_x, mars_y, 5, al_map_rgb(80, 0, 60));
 
 
 			al_flip_display();
