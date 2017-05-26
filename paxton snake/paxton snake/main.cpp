@@ -97,12 +97,12 @@ int main() {
 
 			}
 
-			cout << "snakee is at " << snake_x << " , " << snake_y << endl;
+			cout << "snake izz gucci " << snake_x << " , " << snake_y << endl;
 
 			//check if snek 8 snake
 			if (grid[snake_x] == grid[head_x] && grid[snake_y] == grid[head_y] /*&& freshsnake == true*/) {
 				Eatgoal = true;
-				cout << "om nom" << endl;
+				cout << "waka waka" << endl;
 				//freshsnake = false;
 				snakee_length += 2;
 			}
@@ -146,9 +146,9 @@ int main() {
 				cout << "MATRIX ERROR" << endl;
 
 			if (head_x <= -1 || head_x > 19 || head_y <= -1 || head_y > 19) {
-				cout << "Hit a wall, snakee is dead" << endl;
+				cout << "How you do dat?" << endl;
 				al_clear_to_color(al_map_rgb(0, 0, 0));
-				al_draw_textf(font, al_map_rgb(255, 100, 100), 300, 300, NULL, "You're Dead");
+				al_draw_textf(font, al_map_rgb(255, 255, 255), 300, 300, NULL, "How you do dat?");
 				al_flip_display();
 				al_rest(2);
 				return 0;
@@ -254,15 +254,15 @@ int main() {
 				for (int j = 0; j < 20; j++) {
 					//0 is background
 					if (grid[i][j] == 0)
-						al_draw_filled_rectangle(i*sneksize, j*sneksize, i*sneksize + sneksize, j*sneksize + sneksize, al_map_rgb(0, 250, 150));
+						al_draw_filled_rectangle(i*sneksize, j*sneksize, i*sneksize + sneksize, j*sneksize + sneksize, al_map_rgb(0, 250, 250));
 
 					//1 is snakee
 					if (grid[i][j] == 1)
-						al_draw_filled_rectangle(i*sneksize, j*sneksize, i*sneksize + sneksize, j*sneksize + sneksize, al_map_rgb(0, 100, 250));
+						al_draw_filled_rectangle(i*sneksize, j*sneksize, i*sneksize + sneksize, j*sneksize + sneksize, al_map_rgb(15, 100, 250));
 
 					//2 is snake
 					if (grid[i][j] == 2) {
-						al_draw_rectangle(i*sneksize, j*sneksize, i*sneksize + sneksize, j*sneksize + sneksize, al_map_rgb(0, 100, 250), 4);
+						al_draw_rectangle(i*sneksize, j*sneksize, i*sneksize + sneksize, j*sneksize + sneksize, al_map_rgb(0, 10, 60), 4);
 						cout << "drawing snake at " << i << " ," << j << endl;
 					}
 
